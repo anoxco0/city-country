@@ -1,3 +1,6 @@
+import axios from "axios";
+import { useState } from "react";
+
 export const ADD_COUNTRY_LOADING = 'ADD_COUNTRY';
 export const ADD_COUNTRY_SUCCESS = 'ADD_COUNTRY_SUCCESS';
 export const ADD_COUNTRY_FAILURE = 'ADD_COUNTRY_FAILURE';
@@ -19,5 +22,28 @@ export const addCountryFailure = () => {
     return {
         type: ADD_COUNTRY_FAILURE,
     }
+}
+
+export const AddNewCountry = (payload) =>(dispatch)=> {
+    dispatch(addCountryLoading());
+    if(payload.length>1)
+    axios.patch(`http://localhost:8080/country/1`, {country:payload}).then(res => {
+    dispatch(addCountrySuccess(payload));
+    }).catch(err => {
+    dispatch(addCountryFailure(err));
+    })
+    else
+    axios.post('http://localhost:8080/country', {country:payload}).then(res => {
+        dispatch(addCountrySuccess(payload));
+        }).catch(err => {
+        dispatch(addCountryFailure(err));
+        })
+}
+export const getCountry = (payload) =>(dispatch)=> {
+    axios.get('http://localhost:8080/country').then(res => {
+        dispatch(addCountrySuccess(payload));
+      }).catch(err => {
+    dispatch(addCityFailure());
+  });
 }
 

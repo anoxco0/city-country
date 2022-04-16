@@ -3,25 +3,22 @@ import { useDispatch } from 'react-redux'
 import { Addnewcity } from '../Redux/AddCity/action'
 
 export const AddCity = () => {
-
 const [city, setCity] = useState("")
 const [population, setPopulation] = useState("")
 const [country, setCountry] = useState("")    
 const dispatch = useDispatch();
 
-    const handleSubmit = () => {
-        const payload = {
-            city,
-            population,
-            country
-        }
-        dispatch(Addnewcity(payload))   
-        setCity('')
-        setPopulation('')
-        setCountry('')
-    }
-    
-        
+  const handleSubmit = () => {
+      const payload = {
+          city,
+          population,
+          country
+      }
+      dispatch(Addnewcity(payload))   
+      setCity('')
+      setPopulation('')
+      setCountry('')
+  }      
 
   return (
     <div>

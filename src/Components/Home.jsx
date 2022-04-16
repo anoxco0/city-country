@@ -45,9 +45,11 @@ export const Home = () => {
 
   return (
     <div>
+        <select name="" id="">
+            <option value="india">India</option>
+        </select>
         <button onClick={handlesortasc}>asc</button>
         <button onClick={handlesortdesc}>desc</button>
-        
         <div>
             <table>
                 <thead >
