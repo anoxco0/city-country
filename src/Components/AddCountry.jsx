@@ -9,7 +9,6 @@ export const AddCountry = () => {
     const [payload, setPayload] = useState([]);
     const dispatch = useDispatch();
     const handleSubmit = (e)=>{
-      axios.get('http://localhost:8080/country').then((res)=>setPayload(...res.data[0].country, ))
       dispatch(AddNewCountry(country));
       setCountry('')
     }

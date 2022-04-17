@@ -1,4 +1,16 @@
 {
-  "cities": [],
-  "country": []
+  "cities": [
+    {
+      "city": "Mumbai",
+      "population": "2",
+      "country": "India",
+      "id": 1
+    }
+  ],
+  "country": [
+    {
+      "country": "India",
+      "id": 1
+    }
+  ]
 }

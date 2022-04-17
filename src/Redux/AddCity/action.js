@@ -31,7 +31,7 @@ export const addCityFailure = (error) => {
       }).catch(err => {
       dispatch(addCityFailure(err));
       });
-    }
+  }
   export const getcity = (payload) =>(dispatch)=> {
       axios.get('http://localhost:8080/cities').then(res => {
           dispatch(addCitySuccess(payload));
