@@ -26,14 +26,14 @@ export const addCityFailure = (error) => {
     };
   export const Addnewcity = (payload) =>(dispatch)=> {
       dispatch(addCityloading());
-      axios.post('http://localhost:8080/cities', payload).then(res => {
+      axios.post('/cities', payload).then(res => {
       dispatch(addCitySuccess(payload));
       }).catch(err => {
       dispatch(addCityFailure(err));
       });
   }
   export const getcity = (payload) =>(dispatch)=> {
-      axios.get('http://localhost:8080/cities').then(res => {
+      axios.get('/cities').then(res => {
           dispatch(addCitySuccess(payload));
         }).catch(err => {
       dispatch(addCityFailure());

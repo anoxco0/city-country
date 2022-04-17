@@ -26,14 +26,14 @@ export const addCountryFailure = () => {
 
 export const AddNewCountry = (payload) =>(dispatch)=> {
     dispatch(addCountryLoading());
-    axios.post(`http://localhost:8080/country`, {country:payload}).then(res => {
+    axios.post(`/country`, {country:payload}).then(res => {
     dispatch(addCountrySuccess(payload));
     }).catch(err => {
     dispatch(addCountryFailure(err));
     })
 }
 export const getCountry = (payload) =>(dispatch)=> {
-    axios.get('http://localhost:8080/country').then(res => {
+    axios.get('/country').then(res => {
         dispatch(addCountrySuccess(payload));
       }).catch(err => {
     dispatch(addCityFailure());

@@ -11,20 +11,20 @@ export const Home = () => {
     const navigat = useNavigate();
      
     useEffect(()=>{
-        axios.get("http://localhost:8080/cities").then(res => {
+        axios.get("/cities").then(res => {
             setData(res.data)
         })
     },[])
 
     const handlesortasc = ()=>{
-        axios.get("http://localhost:8080/cities").then((res)=>{
+        axios.get("/cities").then((res)=>{
             setData(res.data.sort((a,b)=>{
               return  a.population-b.population;
             }))
         })
     }
     const handlesortdesc = ()=>{
-        axios.get("http://localhost:8080/cities").then((res)=>{
+        axios.get("/cities").then((res)=>{
             setData(res.data.sort((a,b)=>{
               return  b.population-a.population;
             }))
@@ -36,7 +36,7 @@ export const Home = () => {
 
     }
     const deletedata = (id) => {
-        axios.delete(`http://localhost:8080/cities/${id}`).then(res => {
+        axios.delete(`/cities/${id}`).then(res => {
             setData(data.filter(item => item.id !== id))
            dispatch(getcity()) 
         })
